@@ -1,8 +1,6 @@
 <script>
-	// Example imports
-	//import svelteLogo from './assets/svelte.svg'
-	//import viteLogo from '/vite.svg'
-	//import Counter from './lib/Counter.svelte'
+	import svelteLogo from './assets/svelte.svg'
+	import viteLogo from '/vite.svg'
 	import Index from './pages/Index.svelte'
 	import About from './pages/About.svelte'
 
@@ -43,12 +41,29 @@
 	</div>
 
 	<footer>
-		- ignurof
+		made by ignurof, powered by <img src={viteLogo} /> + <img src={svelteLogo} />
 	</footer>
 </main>
 
 <style>
+	main {
+		display: flex;
+		border: 2px solid red;
+	}
+
+	header {
+
+	}
+
+	nav {
+
+	}
+
 	.active-page {
 		background-color: gray;
+	}
+
+	footer {
+
 	}
 </style>
