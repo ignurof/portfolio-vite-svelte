@@ -47,8 +47,8 @@
 
 <style>
 	main {
-		display: flex;
 		border: 2px solid red;
+		width: 100vw;
 	}
 
 	header {
