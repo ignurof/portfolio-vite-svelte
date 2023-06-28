@@ -1,40 +1,46 @@
 <script>
+	// Example imports
 	//import svelteLogo from './assets/svelte.svg'
 	//import viteLogo from '/vite.svg'
 	//import Counter from './lib/Counter.svelte'
+	import Index from './pages/Index.svelte'
+	import About from './pages/About.svelte'
 
-	let siteContent = "index";
+	let activePage = "index";
 
-	const updateSiteContent = (pageName) => {
+	const updateActivePage = (pageName) => {
 		switch(pageName){
 			case "index":
-				siteContent = "index";
+				activePage = "index";
 				break;
 			case "about":
-				siteContent = "about";
+				activePage = "about";
 				break;
 
 			default:
-				console.error("updateSiteContent error");
+				console.error("updateActivePage error");
 		}
 	};
 </script>
 
 <main>
-	<nav>
-		<button on:click={() => updateSiteContent("index")}>Index</button>
-		<button on:click={() => updateSiteContent("about")}>About</button>
-	</nav>
+	<header>
+		<h2>ignurof portfolio</h2>
+		<nav>
+			<button on:click={() => updateActivePage("index")}>Index</button>
+			<button on:click={() => updateActivePage("about")}>About</button>
+		</nav>
+	</header>
 
-	<!-- Site Content -->
-	<!-- <Index /> -->
-	{#if siteContent === "index"}
-		<Index />
-	{:else if siteContent === "about"}
-		<About />
-	{:else}
-		{console.error("SiteContent HTML section error")}
-	{/if}	
+	<div class="active-page">
+		{#if activePage === "index"}
+			<Index />
+		{:else if activePage === "about"}
+			<About />
+		{:else}
+			{console.error("active-page div expression error")}
+		{/if}
+	</div>
 
 	<footer>
 		- ignurof
@@ -42,4 +48,7 @@
 </main>
 
 <style>
+	.active-page {
+		background-color: gray;
+	}
 </style>
