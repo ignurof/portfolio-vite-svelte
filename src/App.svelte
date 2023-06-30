@@ -1,8 +1,22 @@
 <script>
-	import svelteLogo from './assets/svelte.svg'
-	import viteLogo from '/vite.svg'
-	import Index from './pages/Index.svelte'
-	import About from './pages/About.svelte'
+	import svelteLogo from "./assets/svelte.svg";
+	import viteLogo from "/vite.svg";
+	import Index from "./pages/Index.svelte";
+	import About from "./pages/About.svelte";
+	//import loremIpsum from "./assets/lorem.txt"; output: /src/assets/lorem.txt
+
+	let loremIpsum = "";
+
+	const getLoremIpsum = async () => await fetch("http://localhost:5173/lorem.txt")
+		.then((response) => response.text())
+		.then((data) => {
+			return data;
+		})
+		.catch((error) => console.error("ERROR: getLoremIpsum"));
+
+	getLoremIpsum().then((data) => {
+		loremIpsum = data;
+	});
 
 	let activePage = "index";
 
@@ -18,23 +32,31 @@
 			default:
 				console.error("updateActivePage error");
 		}
-	};
+	}
+
 </script>
 
 <main>
 	<header>
-		<h2>ignurof portfolio</h2>
+		<div class="site-logo">ignurof</div>
 		<nav>
-			<button on:click={() => updateActivePage("index")}>Index</button>
-			<button on:click={() => updateActivePage("about")}>About</button>
+			<ul>
+				<li>
+					<button on:click={() => updateActivePage("index")}>Index</button>
+				</li>
+				<li>
+					<button on:click={() => updateActivePage("about")}>About</button>
+				</li>
+			</ul>
 		</nav>
 	</header>
 
 	<div class="active-page">
 		{#if activePage === "index"}
-			<Index />
+			<!-- loremIpsum={loremIpsum} same as below -->
+			<Index {loremIpsum} />
 		{:else if activePage === "about"}
-			<About />
+			<About {loremIpsum} />
 		{:else}
 			{console.error("active-page div expression error")}
 		{/if}
@@ -52,18 +74,43 @@
 	}
 
 	header {
+		display: flex;
+		min-width: 100%;
+		border-bottom: 4px solid black;
+		background-color: purple;
+	}
 
+	.site-logo {
+		font-size: 4rem;
+		background-color: green;
 	}
 
 	nav {
+		display: flex;
+		justify-content: flex-end;
+		background-color: red;
+		width: 100%;
+	}
 
+	nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		background-color: cyan;
+		justify-content: center;
+		align-items: center;
+		border-left: 4px solid black;
 	}
 
 	.active-page {
-		background-color: gray;
+		max-width: 1280px;
 	}
 
 	footer {
-
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 2.5rem;
 	}
 </style>
