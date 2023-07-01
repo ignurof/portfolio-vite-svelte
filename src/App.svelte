@@ -70,7 +70,8 @@
 <style>
 	main {
 		border: 2px solid red;
-		width: 100vw;
+		display: flex;
+		flex-direction: column;
 	}
 
 	header {
@@ -105,12 +106,17 @@
 
 	.active-page {
 		max-width: 1280px;
+		border: 2px dotted pink;
+		margin: 0 auto;
 	}
 
 	footer {
-		position: absolute;
-		bottom: 0;
 		width: 100%;
 		height: 2.5rem;
+		margin: 0 auto;
+		border: 2px solid cyan;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
