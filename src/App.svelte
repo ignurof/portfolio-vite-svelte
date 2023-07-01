@@ -3,7 +3,6 @@
 	import viteLogo from "/vite.svg";
 	import Index from "./pages/Index.svelte";
 	import About from "./pages/About.svelte";
-	//import loremIpsum from "./assets/lorem.txt"; output: /src/assets/lorem.txt
 
 	let loremIpsum = "";
 
@@ -82,8 +81,9 @@
 	}
 
 	.site-logo {
-		font-size: 4rem;
+		font-size: 2rem;
 		background-color: green;
+		padding: 2rem;
 	}
 
 	nav {
@@ -96,12 +96,28 @@
 	nav ul {
 		list-style-type: none;
 		margin: 0;
-		padding: 0;
+		padding: 2rem;
 		display: flex;
 		background-color: cyan;
 		justify-content: center;
 		align-items: center;
 		border-left: 4px solid black;
+	}
+
+	nav ul li {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	button {
+		background-color: white;
+		color: black;
+		border: 2px solid black;
+	}
+
+	button:hover {
+		background-color: black;
+		color: white;
 	}
 
 	.active-page {
@@ -118,5 +134,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
 	}
 </style>
