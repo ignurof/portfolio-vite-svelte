@@ -7,4 +7,8 @@
 </div>
 
 <style>
+	.page-content {
+		display: flex;
+		flex-direction: column;
+	}
 </style>
