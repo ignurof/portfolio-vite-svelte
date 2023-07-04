@@ -75,23 +75,26 @@
 	header {
 		display: flex;
 		min-width: 100%;
+		align-items: center;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	.site-logo {
 		font-size: 2rem;
-		padding: 2rem;
+		padding-left: 4rem;
 	}
 
 	nav {
 		display: flex;
 		justify-content: flex-end;
 		width: 100%;
+		padding-right: 2rem;
 	}
 
 	nav ul {
 		list-style-type: none;
 		margin: 0;
-		padding: 2rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -103,14 +106,20 @@
 	}
 
 	button {
-		background-color: white;
-		color: black;
-		border: 2px solid black;
+		color: white;
+		background-color: transparent;
+		border: none;
+		margin: 0;
+		padding: 0;
+		text-align: inherit;
+		font: inherit;
+		border-radius: 0;
+		appearance: none;
 	}
 
 	button:hover {
-		background-color: black;
-		color: white;
+		color: black;
+		cursor: pointer;
 	}
 
 	.active-page {
@@ -120,7 +129,6 @@
 
 	footer {
 		width: 100%;
-		height: 2.5rem;
 		margin: 0 auto;
 		display: flex;
 		justify-content: center;
