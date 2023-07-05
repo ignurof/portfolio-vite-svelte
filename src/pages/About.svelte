@@ -1,12 +1,11 @@
 <script>
-	// Example imports
-	//import svelteLogo from './assets/svelte.svg'
-	//import viteLogo from '/vite.svg'
-	//import Counter from './lib/Counter.svelte'
+	import Card from "../lib/Card.svelte"
 </script>
 
 <div class="page-content">
-Hello, World!!
+	<Card cardNum=11 />
+	<Card />
+	<Card cardNum=42 />
 </div>
 
 <style>

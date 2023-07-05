@@ -4,19 +4,6 @@
 	import Index from "./pages/Index.svelte";
 	import About from "./pages/About.svelte";
 
-	let loremIpsum = "";
-
-	const getLoremIpsum = async () => await fetch("http://localhost:5173/lorem.txt")
-		.then((response) => response.text())
-		.then((data) => {
-			return data;
-		})
-		.catch((error) => console.error("ERROR: getLoremIpsum"));
-
-	getLoremIpsum().then((data) => {
-		loremIpsum = data;
-	});
-
 	let activePage = "index";
 
 	const updateActivePage = (pageName) => {
@@ -52,10 +39,9 @@
 
 	<div class="active-page">
 		{#if activePage === "index"}
-			<!-- loremIpsum={loremIpsum} same as below -->
-			<Index {loremIpsum} />
+			<Index />
 		{:else if activePage === "about"}
-			<About {loremIpsum} />
+			<About />
 		{:else}
 			{console.error("active-page div expression error")}
 		{/if}
@@ -125,6 +111,7 @@
 	.active-page {
 		max-width: 1280px;
 		margin: 0 auto;
+		padding-top: 2rem;
 	}
 
 	footer {
